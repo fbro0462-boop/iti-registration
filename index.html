@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRIJAN PVT ITI BEMETARA | Registration 2026</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); }
+        header { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; padding: 2rem 0; text-align: center; }
+        .logo { font-size: 2.8rem; font-weight: 700; font-family: 'Poppins', sans-serif; }
+        .container { max-width: 1100px; margin: 2rem auto; padding: 0 20px; }
+
+        .card { background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+        .page { display: none; }
+        .page.active { display: block; }
+
+        .form-header, .second-header { background: #1e3a8a; color: white; padding: 1.5rem; text-align: center; }
+        .form-body, .second-body { padding: 2.5rem; }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; color: #1e3a8a; }
+        input, select { width: 100%; padding: 14px 16px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; }
+        input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+
+        .full-width { grid-column: 1 / -1; }
+        .btn { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 16px; border: none; border-radius: 50px; font-size: 1.1rem; width: 100%; cursor: pointer; margin-top: 10px; }
+        .btn:hover { transform: translateY(-3px); }
+        .download-btn { background: #10b981; }
+/* ==========================
+   Mobile Responsive
+========================== */
+
+html{
+    font-size:16px;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+.container{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    padding:15px;
+}
+
+.card{
+    width:100%;
+}
+
+@media (max-width:768px){
+
+header{
+    padding:20px 10px;
+}
+
+.logo{
+    font-size:1.8rem;
+    line-height:1.2;
+}
+
+header p{
+    font-size:14px;
+}
+
+.form-body,
+.second-body{
+    padding:20px 15px;
+}
+
+.form-grid{
+    grid-template-columns:1fr;
+    gap:10px;
+}
+
+.full-width{
+    grid-column:auto;
+}
+
+input,
+select,
+button{
+    width:100%;
+    font-size:16px;
+}
+
+.btn{
+    padding:15px;
+}
+
+#adminPass{
+    width:100% !important;
+    max-width:100%;
+}
+
+}
+
+@media (max-width:480px){
+
+.container{
+    padding:10px;
+}
+
+.logo{
+    font-size:1.5rem;
+}
+
+.form-header h2,
+.second-header h2{
+    font-size:20px;
+}
+
+label{
+    font-size:14px;
+}
+
+input,
+select{
+    padding:12px;
+}
+
+.btn{
+    font-size:16px;
+}
+
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SRIJAN PVT ITI BEMETARA</div>
+            <p>In Front of PG College, Bemetara - 491335</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Page 1: Registration -->
+        <div id="page1" class="page active card">
+            <div class="form-header"><h2>ITI Trainee Registration 2026</h2></div>
+            <div class="form-body">
+                <form id="registrationForm">
+                    <div class="form-grid">
+                        <div class="form-group"><label>Full Name *</label><input type="text" id="fullName" required></div>
+                        <div class="form-group"><label>Father's Name *</label><input type="text" id="fatherName" required></div>
+                        <div class="form-group"><label>Date of Birth *</label><input type="date" id="dob" required></div>
+                        <div class="form-group"><label>Mobile *</label><input type="tel" id="mobile" maxlength="10" required></div>
+                        <div class="form-group full-width"><label>Trade *</label>
+                            <select id="trade" required>
+                                <option value="">-- Select Trade --</option>
+                                <option value="Electrician">Electrician</option>
+                                <option value="Fitter">Fitter</option>
+                                <option value="COPA">COPA</option>
+                                <option value="Welder">Welder</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Create Your Password * (Use letters, numbers & symbols)</label>
+                            <input type="password" id="traineePassword" placeholder="e.g. Rahul@1234" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Submit Registration</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Page 2: After Submit -->
+        <div id="page2" class="page card">
+            <div class="second-header"><h2>Registration Successful!</h2></div>
+            <div class="second-body" style="text-align:center;">
+                <p>Your details have been saved.</p>
+                <button onclick="showAdminLogin()" class="btn">Admin Login (Only Owner)</button>
+            </div>
+        </div>
+
+        <!-- Admin Login -->
+        <div id="adminPage" class="page card">
+            <div class="second-header"><h2>Admin Access</h2></div>
+            <div class="second-body" style="text-align:center;">
+                <input type="password" id="adminPass" placeholder="Enter Admin Password" style="padding:16px; width:320px; margin:20px auto; display:block;">
+                <button onclick="verifyAdmin()" class="btn">Login</button>
+                <button onclick="downloadExcel()" class="btn download-btn" style="margin-top:15px;">📥 Download Full Excel Sheet</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ADMIN_PASSWORD = "Kheda@2026";   // ← Change this if you want
+        let submissions = JSON.parse(localStorage.getItem('itiSubmissions')) || [];
+
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const pass = document.getElementById('traineePassword').value;
+            if (pass.length < 6 || !/[0-9]/.test(pass) || !/[!@#$%^&*]/.test(pass)) {
+                alert("Password must contain letters, numbers and symbols (min 6 characters)");
+                return;
+            }
+
+            const formData = {
+                Date: new Date().toLocaleDateString('en-IN'),
+                FullName: document.getElementById('fullName').value,
+                FatherName: document.getElementById('fatherName').value,
+                DOB: document.getElementById('dob').value,
+                Mobile: document.getElementById('mobile').value,
+                Trade: document.getElementById('trade').value,
+                TraineePassword: document.getElementById('traineePassword').value,
+                Status: "Pending"
+            };
+fetch("https://script.google.com/macros/s/AKfycbwH1LO7Uxj2NyfhlC4OeIblxXTZb8fQgAttzp3bYpaOCSK2sksSNW_5i0O7Z4u4y19_/exec", {
+    method: "POST",
+    headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify(formData)
+})
+.then(() => {
+    console.log("Data saved to Google Sheet");
+})
+.catch(err => {
+    console.log(err);
+});
+
+            submissions.push(formData);
+            localStorage.setItem('itiSubmissions', JSON.stringify(submissions));
+
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+        });
+
+        function showAdminLogin() {
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('adminPage').classList.add('active');
+        }
+
+        function verifyAdmin() {
+            if (document.getElementById('adminPass').value === ADMIN_PASSWORD) {
+                alert("✅ Welcome Admin! You can now download the Excel sheet.");
+            } else {
+                alert("❌ Wrong Password");
+            }
+        }
+
+        function downloadExcel() {
+            if (document.getElementById('adminPass').value !== ADMIN_PASSWORD) {
+                alert("Please enter correct admin password first");
+                return;
+            }
+            if (submissions.length === 0) {
+                alert("No registrations yet");
+                return;
+            }
+
+            const ws = XLSX.utils.json_to_sheet(submissions);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "All_Registrations");
+            XLSX.writeFile(wb, "SRIJAN_ITI_All_Registrations.xlsx");
+        }
+    </script>
+</body>
+</html>
