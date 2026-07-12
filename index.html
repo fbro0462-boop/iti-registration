@@ -214,7 +214,7 @@ select{
                 TraineePassword: document.getElementById('traineePassword').value,
                 Status: "Pending"
             };
-fetch("https://script.google.com/macros/s/AKfycbz85PIOtiwP5GKPvnyWPKKPQ1bxjlwPEORY1r2cfqpu65Uvco1d7pMbHaTLh4LSLNGv/exec", {
+            fetch("https://script.google.com/macros/s/AKfycbz85PIOtiwP5GKPvnyWPKKPQ1bxjlwPEORY1r2cfqpu65Uvco1d7pMbHaTLh4LSLNGv/exec", {
     method: "POST",
     headers: {
         "Content-Type": "text/plain;charset=utf-8"
@@ -227,7 +227,6 @@ fetch("https://script.google.com/macros/s/AKfycbz85PIOtiwP5GKPvnyWPKKPQ1bxjlwPEO
 .catch(err => {
     console.log(err);
 });
-
             submissions.push(formData);
             localStorage.setItem('itiSubmissions', JSON.stringify(submissions));
 
